@@ -12,7 +12,7 @@ class TAppTheme {
     primaryColor: primaryColor,
     scaffoldBackgroundColor: white,
     textTheme: TTextTheme.lightTextTheme,
-    listTileTheme: 
+
     // elevatedButtonTheme: ElevatedButtonThemeData
   );
   static ThemeData darkTheme = ThemeData(
