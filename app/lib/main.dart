@@ -1,6 +1,7 @@
 import 'package:app/screens/main_screen.dart';
+import 'package:app/themes/theme.dart';
 import 'package:flutter/material.dart';
-// import 'package:sidebarx/sidebarx.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,53 +13,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF15131C),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      themeMode: ThemeMode.system,
+      // theme: ThemeData(
+      //   scaffoldBackgroundColor: const Color(0xFF15131C),
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+
+      theme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
+
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       home: const MainScreen(),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // class MyHomePage extends StatefulWidget {
 //   const MyHomePage({super.key, required this.title});

@@ -1,6 +1,8 @@
+import 'package:app/controller/side_bar_controller.dart';
 import 'package:app/data/side_menu_data.dart';
 import 'package:flutter/material.dart';
 import 'package:app/const/constant.dart';
+import 'package:get/get.dart';
 
 class SideMenuWidget extends StatefulWidget {
   const SideMenuWidget({super.key});
@@ -10,21 +12,74 @@ class SideMenuWidget extends StatefulWidget {
 }
 
 class _SideMenuWidgetState extends State<SideMenuWidget> {
+  final data = SideMenuData();
   int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final data = SideMenuData();
-
-    return Container(
-      child: ListView.builder(
-        itemCount: data.menu.length,
-        itemBuilder: (context, index) => buildMenuEntry(data, index),
+    // return Container(
+    //   child: ListView.builder(
+    //     itemCount: data.menu.length,
+    //     itemBuilder: (context, index) => buildMenuEntry(data, index),
+    //   ),
+    // );
+    SideBarController sideBarController = Get.put(SideBarController());
+    return Scaffold(
+      body: Row(
+        children: [
+          Expanded(
+              child: Obx(() => ListView(
+                    children: [
+                      ListTile(
+                        title: const Text(
+                          "Home",
+                          // style: TextStyle(color: Colors.white),
+                        ),
+                        leading: const Icon(
+                          Icons.home,
+                          // color: Colors.white,
+                        ),
+                        onTap: () => sideBarController.index.value = 0,
+                        selected: sideBarController.index.value == 0,
+                        // selectedColor: Colors.amberAccent,
+                      ),
+                      ListTile(
+                        title: const Text(
+                          "About",
+                          // style: TextStyle(color: Colors.white),
+                        ),
+                        leading: const Icon(
+                          Icons.person,
+                          // color: Colors.white,
+                        ),
+                        onTap: () => sideBarController.index.value = 1,
+                        selected: sideBarController.index.value == 1,
+                        // selectedColor: Colors.amberAccent,
+                      ),
+                      ListTile(
+                        title: const Text(
+                          "setting",
+                          style: TextStyle(
+                              // color: Colors.white,
+                              ),
+                        ),
+                        leading: const Icon(
+                          Icons.settings,
+                          // color: Colors.white,
+                        ),
+                        onTap: () => sideBarController.index.value = 2,
+                        selected: sideBarController.index.value == 2,
+                        // selectedColor: Colors.amberAccent,
+                      ),
+                    ],
+                  )))
+        ],
       ),
     );
   }
 
   Widget buildMenuEntry(SideMenuData data, int index) {
+    SideBarController sideBarController = Get.put(SideBarController());
     final bool isSelected = selectedIndex == index;
 
     return Container(
@@ -35,6 +90,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
       child: InkWell(
         onTap: () => setState(() {
           selectedIndex = index;
+          sideBarController.index.value = index;
         }),
         child: Row(
           children: [
