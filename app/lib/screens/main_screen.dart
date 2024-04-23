@@ -14,12 +14,9 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(
           child: Row(
         children: [
-          const Expanded(
-            flex: 1,
-            child: SizedBox(
-              width: 50,
-              child: SideMenuWidget1(),
-            ),
+          const SizedBox(
+            width: 130.0,
+            child: SideMenuWidget1(),
           ),
           Expanded(
             flex: 10,

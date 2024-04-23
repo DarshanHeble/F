@@ -1,3 +1,5 @@
+import "package:app/const/constant.dart";
+import "package:app/themes/custom_themes/text_theme.dart";
 import "package:flutter/material.dart";
 
 class TAppTheme {
@@ -7,8 +9,18 @@ class TAppTheme {
     useMaterial3: true,
     fontFamily: "",
     brightness: Brightness.light,
-    scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.blue,
+    primaryColor: primaryColor,
+    scaffoldBackgroundColor: white,
+    textTheme: TTextTheme.lightTextTheme,
+    listTileTheme: 
+    // elevatedButtonTheme: ElevatedButtonThemeData
   );
-  static ThemeData darkTheme = ThemeData();
+  static ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: "",
+    brightness: Brightness.dark,
+    primaryColor: primaryColor,
+    scaffoldBackgroundColor: black,
+    textTheme: TTextTheme.darkTextTheme,
+  );
 }

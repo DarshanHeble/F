@@ -17,13 +17,13 @@ class SideMenuWidget1 extends StatelessWidget {
               child: Obx(() => ListView(
                     children: [
                       ListTile(
-                        // title: Text(
-                        //   "Home",
-                        //   style: TextStyle(
-                        //       color: sideBarController.index.value == 1
-                        //           ? Colors.white
-                        //           : Colors.grey),
-                        // ),
+                        title: Text(
+                          "Home",
+                          style: TextStyle(
+                              color: sideBarController.index.value == 1
+                                  ? Colors.white
+                                  : Colors.grey),
+                        ),
                         leading: const Icon(
                           Icons.home,
                           // color: Colors.white,
@@ -33,10 +33,10 @@ class SideMenuWidget1 extends StatelessWidget {
                         // selectedColor: Colors.amberAccent,
                       ),
                       ListTile(
-                        // title: const Text(
-                        //   "About",
-                        //   // style: TextStyle(color: Colors.white),
-                        // ),
+                        title: const Text(
+                          "About",
+                          // style: TextStyle(color: Colors.white),
+                        ),
                         leading: const Icon(
                           Icons.person,
                           // color: Colors.white,
@@ -46,12 +46,12 @@ class SideMenuWidget1 extends StatelessWidget {
                         // selectedColor: Colors.amberAccent,
                       ),
                       ListTile(
-                        // title: const Text(
-                        //   "setting",
-                        //   style: TextStyle(
-                        //       // color: Colors.white,
-                        //       ),
-                        // ),
+                        title: const Text(
+                          "setting",
+                          style: TextStyle(
+                              // color: Colors.white,
+                              ),
+                        ),
                         leading: const Icon(
                           Icons.settings,
                           // color: Colors.white,
