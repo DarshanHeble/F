@@ -19,15 +19,14 @@ class SideMenuWidget1 extends StatelessWidget {
                       ListTile(
                         title: Text(
                           "Home",
-                          style: TextStyle(
-                              color: sideBarController.index.value == 1
-                                  ? Colors.white
-                                  : Colors.grey),
+                          // style: TextStyle(
+                          //     color: sideBarController.index.value == 1
+                          //         ? Colors.white
+                          //         : Colors.grey),
                         ),
-                        leading: const Icon(
-                          Icons.home,
-                          // color: Colors.white,
-                        ),
+                        leading: Icon(sideBarController.index.value == 0
+                            ? Icons.notifications
+                            : Icons.notifications_outlined),
                         onTap: () => sideBarController.index.value = 0,
                         selected: sideBarController.index.value == 0,
                         // selectedColor: Colors.amberAccent,
@@ -37,10 +36,9 @@ class SideMenuWidget1 extends StatelessWidget {
                           "About",
                           // style: TextStyle(color: Colors.white),
                         ),
-                        leading: const Icon(
-                          Icons.person,
-                          // color: Colors.white,
-                        ),
+                        leading: Icon(sideBarController.index.value == 1
+                            ? Icons.campaign
+                            : Icons.campaign_outlined),
                         onTap: () => sideBarController.index.value = 1,
                         selected: sideBarController.index.value == 1,
                         // selectedColor: Colors.amberAccent,
@@ -52,10 +50,9 @@ class SideMenuWidget1 extends StatelessWidget {
                               // color: Colors.white,
                               ),
                         ),
-                        leading: const Icon(
-                          Icons.settings,
-                          // color: Colors.white,
-                        ),
+                        leading: Icon(sideBarController.index.value == 2
+                            ? Icons.settings
+                            : Icons.settings_outlined),
                         onTap: () => sideBarController.index.value = 2,
                         selected: sideBarController.index.value == 2,
                         // selectedColor: Colors.amberAccent,

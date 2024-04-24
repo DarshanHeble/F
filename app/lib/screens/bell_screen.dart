@@ -5,13 +5,19 @@ class BellScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          "bell",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    );
+    return Scaffold(
+        body: Stack(
+      children: [
+        Positioned(
+          bottom: 50,
+          right: 50,
+          child: IconButton.filled(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+            iconSize: 30,
+          ),
+        )
+      ],
+    ));
   }
 }
