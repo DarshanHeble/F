@@ -17,7 +17,7 @@ class SideMenuWidget1 extends StatelessWidget {
               child: Obx(() => ListView(
                     children: [
                       ListTile(
-                        title: Text(
+                        title: const Text(
                           "Home",
                           // style: TextStyle(
                           //     color: sideBarController.index.value == 1
@@ -70,7 +70,7 @@ Widget createMenu(SideBarController sideBarController, int index) {
     return ListTile(
       title: Text(
         sideBarController.sideMenuData[index].title,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
       leading: Icon(sideBarController.sideMenuData[index].icon),
       onTap: () {

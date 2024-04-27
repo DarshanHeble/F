@@ -5,42 +5,54 @@ class BellScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    double screenWidth = MediaQuery.sizeOf(context).width;
+    print(screenWidth);
+    // int crossAxisCount = (screenWidth > 600) ? 3 : 2;
+    int crossAxisCount = getCrossAxisCount(screenWidth);
+
     return Scaffold(
         body: Stack(
       children: [
         Padding(
           padding: const EdgeInsets.all(15.0),
-          child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Expanded(
-                    flex: 10,
-                    child: Row(
-                      children: [
-                        Card(
-                          child: Center(
-                            child: Text("hello $index"),
-                            widthFactor: 4,
-                            heightFactor: 10,
-                          ),
-                        ),
-                      ],
-                    ));
-              }),
-          // child: GridView.count(
-          //   mainAxisSpacing: 15,
-          //   crossAxisSpacing: 15,
-          //   crossAxisCount: 3,
-          //   children: List.generate(10, (index) {
-          //     return Card(
-          //       child: Center(
-          //         child: Text("text $index"),
-          //         heightFactor: 100,
-          //         widthFactor: 100,
-          //       ),
-          //     );
-          //   }),
-          // ),
+          // child: ListView.builder(
+          //     itemCount: 10,
+          //     itemBuilder: (context, index) {
+          //       return Row(
+          //         children: [
+          //           Expanded(
+          //               flex: 10,
+          //               child: Row(
+          //                 children: [
+          //                   Card(
+          //                     child: Center(
+          //                       widthFactor: 4,
+          //                       heightFactor: 10,
+          //                       child: Text("hello $index"),
+          //                     ),
+          //                   ),
+          //                 ],
+          //               )),
+          //         ],
+          //       );
+          //     }),
+          child: GridView.count(
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 15,
+            crossAxisCount: crossAxisCount,
+            childAspectRatio: screenWidth / (crossAxisCount * 300),
+            shrinkWrap: true,
+            children: List.generate(10, (index) {
+              return Card(
+                child: Center(
+                  heightFactor: 100,
+                  widthFactor: 100,
+                  child: Text("text $index"),
+                ),
+              );
+            }),
+          ),
         ),
         Positioned(
           bottom: 50,
@@ -54,4 +66,19 @@ class BellScreen extends StatelessWidget {
       ],
     ));
   }
+}
+
+int getCrossAxisCount(double screenWidth) {
+  final breakPoints = {
+    800: 2,
+    1000: 3,
+    // 1000: 5,
+  };
+
+  for (var i in breakPoints.keys) {
+    if (screenWidth >= i) {
+      return breakPoints[i]!;
+    }
+  }
+  return 1;
 }
