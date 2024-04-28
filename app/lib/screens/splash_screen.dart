@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
       splashIconSize: double.tryParse("400"),
       duration: 200,
       backgroundColor: black,
-      nextScreen: MainScreen(),
+      nextScreen: const MainScreen(),
     );
   }
 }

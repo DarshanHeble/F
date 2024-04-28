@@ -1,5 +1,3 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:app/screens/main_screen.dart';
 import 'package:app/screens/splash_screen.dart';
 import 'package:app/themes/theme.dart';
 import 'package:flutter/material.dart';
@@ -16,17 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
-        // theme: ThemeData(
-        //   scaffoldBackgroundColor: const Color(0xFF15131C),
-        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        //   useMaterial3: true,
-        // ),
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      // theme: ThemeData(
+      //   scaffoldBackgroundColor: const Color(0xFF15131C),
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
 
-        theme: TAppTheme.lightTheme,
-        darkTheme: TAppTheme.darkTheme,
-        home: SplashScreen());
+      theme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
+      home: const SplashScreen(),
+    );
   }
 }

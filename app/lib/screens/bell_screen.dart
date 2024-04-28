@@ -8,6 +8,7 @@ class BellScreen extends StatelessWidget {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
     double screenWidth = MediaQuery.sizeOf(context).width;
     print(screenWidth);
+
     // int crossAxisCount = (screenWidth > 600) ? 3 : 2;
     int crossAxisCount = getCrossAxisCount(screenWidth);
 
@@ -44,13 +45,35 @@ class BellScreen extends StatelessWidget {
             childAspectRatio: screenWidth / (crossAxisCount * 300),
             shrinkWrap: true,
             children: List.generate(10, (index) {
-              return Card(
-                child: Center(
-                  heightFactor: 100,
-                  widthFactor: 100,
-                  child: Text("text $index"),
+              return const Card(
+                  child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "2:21 am",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text("Hello"),
+                    Text("Bell.mp3"),
+                    Row(
+                      children: [
+                        Text("S "),
+                        Text("M "),
+                        Text("T "),
+                        Text("W "),
+                        Text("T "),
+                        Text("F "),
+                        Text("S "),
+                      ],
+                    )
+                  ],
                 ),
-              );
+              ));
             }),
           ),
         ),
@@ -71,7 +94,7 @@ class BellScreen extends StatelessWidget {
 int getCrossAxisCount(double screenWidth) {
   final breakPoints = {
     800: 2,
-    1000: 3,
+    1200: 3,
     // 1000: 5,
   };
 
