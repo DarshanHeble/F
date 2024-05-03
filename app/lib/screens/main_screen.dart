@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
           child: Row(
         children: [
           const SizedBox(
-            width: 130.0,
+            width: 80.0,
             child: SideMenuWidget1(),
           ),
           Expanded(
