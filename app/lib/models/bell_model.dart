@@ -1,14 +1,14 @@
+// class BellModel {
+//   final List<Bell> data;
+
+//   const BellModel({required this.data});
+// }
+
 class BellModel {
-  final List<Bell> data;
-
-  const BellModel({required this.data});
-}
-
-class Bell {
   final String tabname;
   final List<Time> timeData;
 
-  const Bell({required this.tabname, required this.timeData});
+  const BellModel({required this.tabname, required this.timeData});
 }
 
 class Day {

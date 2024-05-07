@@ -81,7 +81,7 @@ class BellScreen extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "${index}",
+            "${BellController.}",
             style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.w600,

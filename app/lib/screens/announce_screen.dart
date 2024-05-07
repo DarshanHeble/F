@@ -30,5 +30,15 @@ class AnnounceScreen extends StatelessWidget {
         ),
       ),
     );
+    // return Scaffold(
+    //   backgroundColor: Colors.red,
+    //   body: Padding(
+    //     padding: EdgeInsets.all(20.0),
+    //     child: Row(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: [],
+    //     ),
+    //   ),
+    // );
   }
 }
