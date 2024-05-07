@@ -19,7 +19,7 @@ class SettingScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                final TimeOfDay? timeOfDay = await showTimePicker(
+                showTimePicker(
                     context: context,
                     initialTime: time,
                     initialEntryMode: TimePickerEntryMode.dial,
