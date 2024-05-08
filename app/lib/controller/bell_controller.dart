@@ -4,7 +4,40 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BellController extends GetxController {
-  Rx<List<BellModel>> bellData = Rx<List<BellModel>>([]);
+  Rx<List<BellModel>> bellData = Rx<List<BellModel>>([
+    const BellModel(tabname: "classs", timeData: [
+      Time(
+          time: "2:30 am",
+          label: "label",
+          musicFileName: "musicFileName",
+          switchState: true,
+          days: [
+            Day(day: "Sun", active: true),
+            Day(day: "Mon", active: true),
+            Day(day: "Tue", active: true),
+            Day(day: "Wed", active: true),
+            Day(day: "Thu", active: true),
+            Day(day: "Fri", active: true),
+            Day(day: "Sat", active: true),
+          ]),
+    ]),
+    const BellModel(tabname: "breaks", timeData: [
+      Time(
+          time: "12:30 am",
+          label: "label",
+          musicFileName: "musicFileName",
+          switchState: true,
+          days: [
+            Day(day: "Sun", active: true),
+            Day(day: "Mon", active: true),
+            Day(day: "Tue", active: true),
+            Day(day: "Wed", active: true),
+            Day(day: "Thu", active: true),
+            Day(day: "Fri", active: true),
+            Day(day: "Sat", active: true),
+          ]),
+    ])
+  ]);
 
   Rx<List<EmployeeModel>> empData = Rx<List<EmployeeModel>>([]);
 
@@ -12,7 +45,7 @@ class BellController extends GetxController {
   TextEditingController addressTEC = TextEditingController();
 
   late EmployeeModel employeeModel;
-  var itemCount = 0.obs;
+  var itemCount = 2.obs;
 
   @override
   void onInit() {

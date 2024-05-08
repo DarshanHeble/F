@@ -1,5 +1,7 @@
 import 'package:app/controller/bell_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class BellScreen extends StatelessWidget {
@@ -7,89 +9,102 @@ class BellScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // BellController bellController = Get.put(BellController());
+
+    // return LayoutBuilder(
+    //   builder: (context, constraints) {
+    //     int columns = (constraints.maxWidth >= 1200)
+    //         ? 3
+    //         : (constraints.maxWidth >= 800)
+    //             ? 2
+    //             : 1;
+
+    //     double cardWidth = constraints.maxWidth / columns - 16;
+    //     BellController bellController = Get.put(BellController());
+
+    //     return GridView.builder(
+    //         itemCount: bellController.itemCount.value,
+    //         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //             crossAxisCount: columns,
+    //             mainAxisSpacing: 20,
+    //             crossAxisSpacing: 20,
+    //             childAspectRatio: cardWidth / 200),
+    //         itemBuilder: (context, index) => buildCard(context, index));
+    //   },
+    // );
+    BellController bellController = Get.put(BellController());
+    return Scaffold(
+      body: Container(
+        height: double.maxFinite,
+        color: const Color.fromARGB(255, 236, 153, 153),
+        child: Row(
+          children: [
+            Container(
+              color: const Color.fromARGB(255, 23, 23, 23),
+              width: 150.0,
+              child: buildSideMenu(bellController),
+            ),
+            Expanded(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  int columns = (constraints.maxWidth >= 1200)
+                      ? 3
+                      : (constraints.maxWidth >= 800)
+                          ? 2
+                          : 1;
+
+                  double cardWidth = constraints.maxWidth / columns - 16;
+                  BellController bellController = Get.put(BellController());
+
+                  return GridView.builder(
+                      itemCount: bellController.itemCount.value,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: columns,
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 20,
+                          childAspectRatio: cardWidth / 200),
+                      itemBuilder: (context, index) =>
+                          buildCard(context, index));
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildSideMenu(bellController) {
     BellController bellController = Get.put(BellController());
 
-    // MediaQueryData mediaQueryData = MediaQuery.of(context);
-    // double screenWidth = MediaQuery.sizeOf(context).width;
-    // print(screenWidth);
-
-    // return Scaffold(
-    //     body: Row(
-    //   children: [
-    //     Stack(
-    //       children: [
-    //         Padding(
-    //             padding: const EdgeInsets.all(15.0),
-    //             child: LayoutBuilder(builder: (context, constraints) {
-    //               int columns = (constraints.maxWidth >= 1200)
-    //                   ? 3
-    //                   : (constraints.maxWidth >= 800)
-    //                       ? 2
-    //                       : 1;
-
-    //               double cardWidth = constraints.maxWidth / columns - 16;
-
-    //               return GridView.builder(
-    //                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //                   crossAxisCount: columns,
-    //                   mainAxisSpacing: 10,
-    //                   crossAxisSpacing: 10,
-    //                   childAspectRatio: cardWidth / 200,
-    //                 ),
-    //                 itemBuilder: (context, index) => buildCard(),
-    //               );
-    //               // return Container();
-    //             })),
-    //         Positioned(
-    //           bottom: 50,
-    //           right: 50,
-    //           child: IconButton.filled(
-    //             onPressed: () {},
-    //             icon: const Icon(Icons.add),
-    //             iconSize: 30,
-    //           ),
-    //         )
-    //       ],
-    //     ),
-    //   ],
-    // ));
-
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        int columns = (constraints.maxWidth >= 1200)
-            ? 3
-            : (constraints.maxWidth >= 800)
-                ? 2
-                : 1;
-
-        double cardWidth = constraints.maxWidth / columns - 16;
-
-        return GridView.builder(
-            itemCount: 4,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: columns,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: cardWidth / 200),
-            itemBuilder: (context, index) => buildCard(context, index));
+    return ListView.builder(
+      itemCount: bellController.itemCount.value,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(bellController.bellData.value[index].tabname),
+          leading: const Icon(Icons.alarm),
+          onTap: () {},
+        );
       },
     );
   }
 
   Widget buildCard(context, index) {
+    BellController bellController = Get.put(BellController());
+
     return Card(
       child: Column(
         children: [
           Text(
-            "${BellController.}",
-            style: TextStyle(
+            bellController.bellData.value[index].timeData[0].time,
+            style: const TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.w600,
             ),
           ),
           Text("Hello"),
           Text("Bell.mp3"),
-          Row(
+          const Row(
             children: [
               Text("S "),
               Text("M "),
